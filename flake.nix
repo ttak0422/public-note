@@ -20,6 +20,7 @@
         {
           system,
           pkgs,
+          lib,
           ...
         }:
         {
@@ -28,6 +29,23 @@
             overlays = [
               (import ./nix/overlays.nix { inherit inputs; })
             ];
+          };
+          packages.default = pkgs.stdenv.mkDerivation {
+            pname = "note";
+            version = "0.0.1";
+            buildInputs = with pkgs; [
+              hugo
+              typo
+            ];
+            src = lib.cleanSource ./.;
+            buildPhase = ''
+              mkdir -p themes
+              ln -snf ${pkgs.typo} themes/typo
+              hugo build
+            '';
+            installPhase = ''
+              cp -r public $out
+            '';
           };
           devShells.default = pkgs.mkShell {
             packages = with pkgs; [
