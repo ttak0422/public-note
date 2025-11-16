@@ -1,0 +1,93 @@
+baseURL = "https://blog.taktak.dev/"
+languageCode = "ja"
+title = "tak's Note"
+theme = "typo"
+
+[outputFormats.markdown]
+baseName = "index"
+isHTML = false
+isPlainText = true
+mediaType = "text/markdown"
+
+[outputs]
+page = ["html", "markdown"]
+taxonomy = ["html", "markdown"]
+term = ["html", "markdown"]
+
+[taxonomies]
+tag = 'tags'
+
+[params]
+# Meta description
+# description = "A Tech Blog"
+
+# Appearance settings
+theme = 'auto'
+colorPalette = 'default'
+hideHeader = true
+
+# # Intro on main page, content is markdown
+# homeIntroTitle = 'Hi!'
+# homeIntroContent = """
+# WIP
+# """
+
+# Collection to display on home
+homeCollectionTitle = 'Posts'
+homeCollection = 'posts'
+
+# Lists parameters
+paginationSize = 100
+listSummaries = false
+listDateFormat = '2006-01-02'
+showListDate = true
+
+# Single page parameters
+singleDateFormat = '2006-01-02'
+toc = true
+math = true
+showTags = true
+
+# Custom footer
+showFooter = false
+# footerContent = "Your **custom** md `footer`"
+
+# Breadcrumbs
+[params.breadcrumbs]
+enabled = true
+showCurrentPage = true
+home = "~"
+
+# [[params.social]]
+# name = "github"
+# url = "https://github.com/ttak0422"
+
+[[params.menu]]
+name = "home"
+url = "/"
+
+[[params.menu]]
+name = "posts"
+url = "/posts"
+
+[[params.menu]]
+name = "tags"
+url = "/tags"
+
+# [[params.menu]]
+# name = "about"
+# url = "/about"
+
+[markup]
+[markup.highlight]
+style = 'algol'
+
+# # Giscus comments
+# [params.giscus]
+# enable = false
+# repo = "user/repo"
+# repoid = "repoId"
+# category = "General"
+# categoryid = "categoryId"
+# mapping = "pathname"
+# theme = "preferred_color_scheme"
