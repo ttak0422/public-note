@@ -31,9 +31,9 @@ jobs:
         run: |
           rm -rf deploy
           mkdir -p deploy
-          cp -a result/. deploy/
+          cp -r --no-preserve=mode,ownership result/. deploy/
           cp package.json tsconfig.json vercel.json deploy/
-          cp -a api deploy/api
+          cp -r api deploy/api
 
       - name: Install Vercel CLI
         run: npm install -g vercel
