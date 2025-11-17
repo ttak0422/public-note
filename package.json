@@ -1,0 +1,9 @@
+{
+  "name": "public-note",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@vercel/og": "^0.8.5"
+  }
+}
