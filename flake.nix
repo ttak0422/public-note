@@ -9,6 +9,10 @@
       url = "github:tomfran/typo";
       flake = false;
     };
+    tcardgen-src = {
+      url = "github:Ladicle/tcardgen";
+      flake = false;
+    };
   };
 
   outputs =
@@ -50,6 +54,7 @@
           devShells.default = pkgs.mkShell {
             packages = with pkgs; [
               hugo
+              tcardgen
             ];
             shellHook = ''
               mkdir -p themes

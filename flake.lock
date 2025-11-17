@@ -54,6 +54,7 @@
         "flake-parts": "flake-parts",
         "nixpkgs": "nixpkgs",
         "systems": "systems",
+        "tcardgen-src": "tcardgen-src",
         "typo-src": "typo-src"
       }
     },
@@ -69,6 +70,22 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default",
+        "type": "github"
+      }
+    },
+    "tcardgen-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1744948467,
+        "narHash": "sha256-TojNst+KUbCEHf0Vbg3TyRy4F6jHidjmPL56gzL0Y1U=",
+        "owner": "Ladicle",
+        "repo": "tcardgen",
+        "rev": "cd3dcec5131646a70ae62087aa45c66801d05375",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Ladicle",
+        "repo": "tcardgen",
         "type": "github"
       }
     },
