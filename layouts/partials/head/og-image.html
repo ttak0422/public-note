@@ -4,6 +4,6 @@
   <!-- {{- end -}} -->
 {{- else -}}
   {{- if .IsPage -}}
-    {{- printf "/og/%s.png" (path.Base .File.Dir | urlquery) -}}
+    {{- printf "https://blog.taktak.dev/og/%s.png" (path.Base .File.Dir | urlquery) -}}
   {{- end -}}
 {{- end -}}
