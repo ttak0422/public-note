@@ -2,7 +2,9 @@
 date = '2025-11-16T21:51:59+09:00'
 draft = false
 title = 'Test post'
-tags = ["tech", "hugo"]
+author = ["@ttak0422"]
+tags = ["tech","hugo"]
+categories = ["posts"]
 +++
 # test
 
