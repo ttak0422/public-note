@@ -1,0 +1,16 @@
+{{- $ogImage := partial "head/og-image.html" . }}
+{{- with $ogImage }}
+  {{- $ogImageStr := printf "%s" . }}
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="{{ $ogImageStr }}">
+{{- else }}
+  <meta name="twitter:card" content="summary">
+{{- end }}
+
+{{- with or .Title site.Title site.Params.title | plainify }}
+  <meta name="twitter:title" content="{{ . }}">
+{{- end }}
+
+{{- with or .Description .Summary site.Params.description | plainify | htmlUnescape }}
+  <meta name="twitter:description" content="{{ trim . "\n\r\t " }}">
+{{- end }}
