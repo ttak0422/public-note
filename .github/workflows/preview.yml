@@ -1,6 +1,7 @@
+---
 name: Preview Deploy to Vercel
 
-on:
+on:  # yamllint disable-line rule:truthy
   pull_request:
     branches: ["main"]
 
@@ -31,17 +32,13 @@ jobs:
         run: |
           rm -rf deploy
           mkdir -p deploy
-          cp -r --no-preserve=mode,ownership result/. deploy/
-          cp package.json tsconfig.json vercel.json deploy/
-          cp -r api deploy/api
+          cp -a result/. deploy/
 
       - name: Install Vercel CLI
         run: npm install -g vercel
 
       - name: Pull Vercel project settings (preview)
-        working-directory: deploy
         run: vercel pull --yes --environment=preview --token "$VERCEL_TOKEN"
 
       - name: Deploy preview
-        working-directory: deploy
-        run: vercel deploy . --yes --token "$VERCEL_TOKEN"
+        run: vercel deploy deploy --yes --token "$VERCEL_TOKEN"

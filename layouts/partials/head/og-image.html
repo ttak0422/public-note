@@ -1,0 +1,9 @@
+{{- if .IsHome -}}
+  <!-- {{- with resources.GetMatch "images/og-image.{webp,png,jpg}" -}} -->
+  <!--   {{- .RelPermalink -}} -->
+  <!-- {{- end -}} -->
+{{- else -}}
+  {{- if .IsPage -}}
+    {{- printf "https://blog.taktak.dev/og/%s.png" (path.Base .File.Dir | urlquery) -}}
+  {{- end -}}
+{{- end -}}
