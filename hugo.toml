@@ -15,7 +15,7 @@ taxonomy = ["html", "markdown"]
 term = ["html", "markdown"]
 
 [taxonomies]
-tag = 'tags'
+tag = "tags"
 
 [params]
 # Meta description
@@ -44,7 +44,7 @@ showListDate = true
 
 # Single page parameters
 singleDateFormat = '2006-01-02'
-toc = true
+toc = false
 math = true
 showTags = true
 
