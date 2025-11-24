@@ -1,0 +1,68 @@
+---
+name: Textlint
+
+on:  # yamllint disable-line rule:truthy
+  push:
+    branches:
+      - main
+    paths:
+      - '**/*.md'
+      - '**/*.mdx'
+      - package.json
+      - pnpm-lock.yaml
+      - .textlintrc.cjs
+      - .textlintignore
+  pull_request:
+    branches:
+      - main
+    paths:
+      - '**/*.md'
+      - '**/*.mdx'
+      - package.json
+      - pnpm-lock.yaml
+      - .textlintrc.cjs
+      - .textlintignore
+
+permissions:
+  contents: read
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Detect Markdown changes
+        id: changed
+        uses: tj-actions/changed-files@v45
+        with:
+          files: |
+            **/*.md
+            **/*.mdx
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10.20.0
+          run_install: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        if: steps.changed.outputs.any_changed == 'true'
+        run: pnpm install --frozen-lockfile
+
+      - name: Run textlint
+        if: steps.changed.outputs.any_changed == 'true'
+        run: pnpm run lint:text
+
+      - name: Skip (no markdown changes)
+        if: steps.changed.outputs.any_changed != 'true'
+        run: echo "No Markdown changes detected; skipping textlint."
