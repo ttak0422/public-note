@@ -44,6 +44,7 @@
 
 {{ if hugo.IsProduction }}
 {{ template "_internal/google_analytics.html" . }}
+{{ partial "partials/vercel.html" . }}
 
 {{ if .Site.Params.umami.enable }}
 {{ partial "umami.html" . }}
