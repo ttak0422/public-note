@@ -4,7 +4,7 @@ draft = false
 title = 're:re:ブログ環境再構築'
 author = ["@ttak0422"]
 tags = ["tech", "hugo", "nix"]
-categories = ["articles"]
+categories = ["posts"]
 +++
 ブログ環境の構築は今回で3回目になる。
 
