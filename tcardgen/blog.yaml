@@ -3,7 +3,7 @@ template: tcardgen/image.png
 title:
   start:
     px: 140
-    py: 165
+    py: 200
   fgHexColor: "#545472 "
   fontSize: 72
   fontStyle: Bold
