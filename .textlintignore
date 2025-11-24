@@ -1,0 +1,14 @@
+# Build artifacts
+public
+resources
+node_modules
+.pnpm-store
+.cache
+.textlintcache
+
+# Theme assets or external repos
+static
+themes
+
+# Generated metadata
+hugo_stats.json

@@ -70,6 +70,8 @@
             packages = with pkgs; [
               hugo
               tcardgen
+              nodejs_24
+              pnpm
             ];
             shellHook = ''
               mkdir -p themes

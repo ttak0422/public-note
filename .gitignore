@@ -7,6 +7,12 @@ themes
 ### direnv ###
 .direnv
 
+### Node.js ###
+node_modules
+.pnpm-store
+.cache
+.textlintcache
+
 # Created by https://www.toptal.com/developers/gitignore/api/hugo
 # Edit at https://www.toptal.com/developers/gitignore?templates=hugo
 
