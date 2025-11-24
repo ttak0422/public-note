@@ -48,8 +48,7 @@
               mkdir -p themes
               ln -snf ${pkgs.typo} themes/typo
               # og image
-              # for x in content/posts/*/index.md content/articles/*/index.md; do
-              for x in content/posts/*/index.md; do
+              for x in content/posts/*/index.md content/articles/*/index.md; do
                 [ -f "$x" ] || continue
                 id=$(basename "$(dirname "$x")")
                 tcardgen \
