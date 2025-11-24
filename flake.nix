@@ -70,7 +70,7 @@
             packages = with pkgs; [
               hugo
               tcardgen
-              nodejs_24
+              nodejs_22
               pnpm
             ];
             shellHook = ''

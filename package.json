@@ -3,7 +3,7 @@
   "private": true,
   "packageManager": "pnpm@10.20.0",
   "engines": {
-    "node": ">=24"
+    "node": ">=22"
   },
   "scripts": {
     "lint:text": "textlint --cache --cache-location .cache/textlint \"README.md\" \"content/**/*.{md,mdx}\"",
