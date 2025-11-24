@@ -1,5 +1,22 @@
 module.exports = {
-  filters: {},
+  filters: {
+    comments: true,
+    "node-types": {
+      nodeTypes: [
+        "Yaml",
+        "Toml",
+        "FrontMatter",
+        "Header",
+        "ListItem",
+        "Code",
+        "CodeBlock",
+        "CodeBlockFence",
+        "Math",
+        "Link",
+        "Image"
+      ]
+    }
+  },
   rules: {
     "@textlint-ja/preset-ai-writing": true,
     "preset-japanese": {
@@ -10,7 +27,14 @@ module.exports = {
     },
     "preset-ja-technical-writing": {
       "sentence-length": false,
-      "max-kanji-continuous-len": false
+      "max-kanji-continuous-len": false,
+      "no-mix-dearu-desumasu": {
+        preferInHeader: "である",
+        preferInBody: "である",
+        preferInList: "である",
+        preferInQuote: "である",
+        strict: false
+      }
     },
     "japanese/sentence-length": false,
     "ja-technical-writing/sentence-length": false,
