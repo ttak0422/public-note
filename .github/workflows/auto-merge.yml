@@ -8,9 +8,11 @@ on:  # yamllint disable-line rule:truthy
 
 permissions:
   contents: write
+  checks: write
   pull-requests: write
 
 jobs:
+  # see https://www.m3tech.blog/entry/github-auto-merge
   squash-merge:
     if: >
       github.event.label.name == 'ready to merge' &&
@@ -19,6 +21,26 @@ jobs:
       github.event.pull_request.draft == false
     runs-on: ubuntu-latest
     steps:
+      - name: Create merge approval check
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: |
+          CHECK_NAME="Merge Approval by Action"
+          HEAD_SHA=$(gh pr view "$PR_NUMBER" --repo "$REPO" --json headRefOid --jq '.headRefOid')
+
+          if ! gh api repos/"$REPO"/check-runs -X POST \
+            -F name="$CHECK_NAME" \
+            -F head_sha="$HEAD_SHA" \
+            -F status="completed" \
+            -F conclusion="success" 2>&1; then
+            echo "::error::Failed to create check run for PR approval"
+            exit 1
+          fi
+
+          echo "✅ Created check run: $CHECK_NAME"
+
       - name: Squash-merge pull request
         uses: actions/github-script@v7
         with:
