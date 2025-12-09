@@ -90,12 +90,12 @@ style = 'algol'
   [markup.goldmark.renderer]
     unsafe = true
 
-# # Giscus comments
-# [params.giscus]
-# enable = false
-# repo = "user/repo"
-# repoid = "repoId"
-# category = "General"
-# categoryid = "categoryId"
-# mapping = "pathname"
-# theme = "preferred_color_scheme"
+# Giscus comments
+[params.giscus]
+enable = true
+repo = "ttak0422/public-note"
+repoid = "R_kgDOQWsHOg"
+category = "General"
+categoryid = "DIC_kwDOQWsHOs4Czi78"
+mapping = "pathname"
+theme = "preferred_color_scheme"
